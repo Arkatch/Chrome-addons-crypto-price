@@ -3,11 +3,12 @@ window.onload = ()=>{
     .then(resp => resp.json())
 	.then(resp => build(resp))
 	.then(resp => buildExt(resp))
-		
-	fetch('https://api.coinmarketcap.com/v1/ticker/dogecoin/')
-    .then(resp => resp.json())
-	.then(resp => build(resp))
-	.then(resp => buildExt(resp))
+	.then(()=>{
+		fetch('https://api.coinmarketcap.com/v1/ticker/dogecoin/')
+		.then(resp => resp.json())
+		.then(resp => build(resp))
+		.then(resp => buildExt(resp))
+	})
 }
 function buildExt(data){
 	let main = htmlElem('div', [['id', 'main']])
